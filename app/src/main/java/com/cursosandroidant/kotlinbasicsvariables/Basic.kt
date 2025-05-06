@@ -3,6 +3,7 @@ import androidx.core.math.MathUtils
 
 var username = "Al"
 const val SPECIES = "Human"
+const val SEPARATOR = "===================="
 
 fun main(){
     println("Hello Nick!")
@@ -121,7 +122,15 @@ fun newTopic(topic: String){
     print(topic)
     print(" ====================")
     println()*/
-    val separator = "===================="
-    print("\n$separator $topic $separator\n")
+    print("\n$SEPARATOR $topic $SEPARATOR\n")
+}
+
+fun subTopic(subTopic: String){
+    /*    println()
+        print("==================== ")
+        print(topic)
+        print(" ====================")
+        println()*/
+    print("\n$SEPARATOR $subTopic\n")
 }
 
