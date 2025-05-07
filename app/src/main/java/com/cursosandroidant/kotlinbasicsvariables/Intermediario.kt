@@ -1,5 +1,7 @@
 package com.cursosandroidant.kotlinbasicsvariables
 
+import java.time.LocalDate
+
 fun main(){
     newTopic("Sentencias condicionales")
     subTopic("If")
@@ -152,6 +154,32 @@ fun main(){
     //loops
     newTopic("Loops")
     loops("Karina", "Pamela", "Pablo", "Juan", "Albert")
+
+    data class Person(val name: String, val birthday: LocalDate)
+    //mutable list to allow adding/removing people
+    val peopleInOffice = mutableListOf(
+        Person("Miranda", LocalDate.of(1990,11,10)),
+        Person("Nicky", LocalDate.of(1987, 5, 6)),
+        Person("Elizabeth", LocalDate.of(1959, 6, 12))
+    )
+    //example to add someone to my list
+    peopleInOffice.add(Person("Emma", LocalDate.of(1995, 7, 29)))
+
+    val today: LocalDate = LocalDate.now()
+    //Check for birthdays with when
+    val birthdayMessages = peopleInOffice.mapNotNull{
+            person -> when {
+        //Match month and day (no need to check year)
+        person.birthday.month == today.month && person.birthday.dayOfMonth == today.dayOfMonth ->
+            "Happy Birthday ${person.name} !!!"
+        else -> null
+    }
+    }
+    if(birthdayMessages.isEmpty()){
+        println("No birthdays today, sorry!")
+    } else {
+        birthdayMessages.forEach{println(it)}
+    }
 }
 
 fun loops(vararg names: String) {
@@ -198,8 +226,18 @@ fun loops(vararg names: String) {
     while(index<names.size){
         println("index: $index")
         println("name at index: ${names.get(index)}")
+        index++
     }
 
+
+    val today_first: LocalDate = LocalDate.now()
+    val message = when(today_first){
+        LocalDate.of(2025,5, 12) -> "Happy birthday Nicky!"
+        LocalDate.of(2025,11,10) -> "Happy birthday Brianda!"
+        LocalDate.of(2025,8,10) -> "Happy birthday Angy!"
+        else -> "No birthdays at home today."
+    }
+    println(message)
 }
 
 fun multiArguments(vararg name: String){
