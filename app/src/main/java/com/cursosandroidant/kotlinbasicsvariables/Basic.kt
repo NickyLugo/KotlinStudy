@@ -5,6 +5,7 @@ var username = "Al"
 const val SPECIES = "Human"
 const val SEPARATOR = "===================="
 
+
 fun main(){
     println("Hello Nick!")
     print("Kotlin basic")

@@ -3,6 +3,8 @@ package com.cursosandroidant.kotlinbasicsvariables
 class School (var name:String, var address: String, val active: Boolean = true, numCode: String = "") {
 
     var staff: MutableList<Person>
+    private var typeOfSchool: TypeOfSchool = TypeOfSchool.FEDERAL
+
     init {
         staff = mutableListOf()
     }
@@ -28,5 +30,24 @@ class School (var name:String, var address: String, val active: Boolean = true, 
         } else {
             return "Inactive school"
         }
+    }
+
+
+
+    //Encapsulamiento aka Encapsulación
+    //lo mismo -> fun getType(): String = typeOfSchool.type
+    fun getType():String{
+        return typeOfSchool.type
+    }
+
+    //this is the class property: this.typeOfSchool
+    //this is the parameter: typeOfSchool
+    fun setType(typeOfSchool: TypeOfSchool) {
+        this.typeOfSchool = typeOfSchool
+    }
+
+    companion object{
+        const val ACTIVE = true
+        const val INACTIVE = false
     }
 }

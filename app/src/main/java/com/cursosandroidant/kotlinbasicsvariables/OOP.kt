@@ -18,7 +18,7 @@ fun main() {
     //override : nos ayuda a sobreescribir unos métodos e invalidamos los que estaban por default
     subTopic("override")
 
-    val schoolInactive = School("Harv", "Main Street #14", false)
+    val schoolInactive = School("Harv", "Main Street #14", School.INACTIVE)
     println(schoolInactive)
 
     //this
@@ -52,6 +52,29 @@ fun main() {
     val admin = Admin("Erick", "Torres", 1)
     highSchool.staff.add(admin)
     println(highSchool)
-    println(teacher.showWork())
-    println(admin.showWork())
+
+    //super
+    subTopic("super")
+    println("Teacher: ${teacher.showWork()}")
+    println("Admin: ${admin.showWork()}")
+
+    //visibilidad o encapsulamiento
+    subTopic("Encapsulamiento")
+    println(teacher.firstName)
+
+    // println(teacher.lastName)
+    //si queremos que el apellido del teacher ya no sea visible
+    //solo podemos acceder al apellido a través del metodo getFullName
+
+    //Companion object
+    subTopic("Companion object")
+    println(School.ACTIVE)
+
+    val schoolACTIVE = School("Oxf", "Roma no.421", School.ACTIVE)
+    println(schoolACTIVE)
+
+    //enum
+    subTopic("enum class")
+    schoolACTIVE.setType(TypeOfSchool.PRIVATE)
+    println(schoolACTIVE.getType())
 }
